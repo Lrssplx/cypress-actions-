@@ -23,7 +23,7 @@ jobs:
           group: UI Electron
           spec: ${{ github.event.inputs.spec}}
         env:
-          CYPRESS_RECORD_KEY: 946095b8-bb85-4723-af53-9ca2642db65e
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
  
@@ -45,7 +45,7 @@ jobs:
           group: UI Chorme
           spec: ${{ github.event.inputs.spec}}
         env:
-          CYPRESS_RECORD_KEY: 946095b8-bb85-4723-af53-9ca2642db65e
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
  
   cypress-e2e-firefox:
@@ -66,7 +66,7 @@ jobs:
           group: UI Firefox
           spec: ${{ github.event.inputs.spec}}
         env:
-          CYPRESS_RECORD_KEY: 946095b8-bb85-4723-af53-9ca2642db65e
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
         
