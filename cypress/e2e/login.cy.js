@@ -31,4 +31,40 @@ describe('Login', () => {
         cy.get(modalContent)
             .should('have.text', 'Suas credenciais são válidas :)')
     })
+
+    it('usuário com espaços em branco', () => {
+        cy.login('   ', 'xperience')
+        cy.get(toast)
+            .should('have.text', 'Informe o seu nome de usuário!')
+    })
+
+    it('senha com espaços em branco', () => {
+        cy.login('qa', '   ')
+        cy.get(toast)
+            .should('have.text', 'Informe a sua senha secreta!')
+    })
+
+    it('usuário com caracteres especiais', () => {
+        cy.login('qa!@#$', 'xperience')
+        cy.get(toast)
+            .should('have.text', 'Oops! Credenciais inválidas :(')
+    })
+
+    it('senha com caracteres especiais', () => {
+        cy.login('qa', 'xperience!@#')
+        cy.get(toast)
+            .should('have.text', 'Oops! Credenciais inválidas :(')
+    })
+
+    it('usuário e senha vazios', () => {
+        cy.login('', '')
+        cy.get(toast)
+            .should('have.text', 'Informe o seu nome de usuário!')
+    })
+
+    it('usuário e senha nulos', () => {
+        cy.login(null, null)
+        cy.get(toast)
+            .should('have.text', 'Informe o seu nome de usuário!')
+    })
 })
