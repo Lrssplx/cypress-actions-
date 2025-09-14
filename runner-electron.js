@@ -4,7 +4,7 @@ const tesults = require('cypress-tesults-reporter');
  
 
 cypress.run({
-  // specs to run here
+  
 })
 .then((results) => {
   const args = {
